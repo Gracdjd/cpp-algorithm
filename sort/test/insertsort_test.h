@@ -1,7 +1,7 @@
 #ifndef INSERTSORT_TEST_H
 #define INSERTSORT_TEST_H
 #include "../google_test/gtest.h"
-#include"insertsort.h"
+#include "../src/insertsort.h"
 using Algorithm::Sort::insert_sort;
 //!insert_sort_test：测试C数组的插入排序
 /*!
@@ -63,5 +63,18 @@ TEST(test_insert_sort, test_std_container)
     EXPECT_EQ(data2,comparedata2);
     EXPECT_EQ(data3,comparedata3);
     EXPECT_EQ(data4,comparedata4);
+}
+
+TEST(test_insert_sort, test_std_container_greater)
+{
+    std::vector<int> data1={1,2,3,4,5,6,7,8,9,10};
+ 
+    std::vector<int> comparedata1={1,2,3,4,5,6,7,8,9,10};
+
+
+    std::sort(comparedata1.begin(),comparedata1.end(), std::greater<int>());
+    insert_sort(data1.begin(),data1.end(),std::greater<int>());
+
+    EXPECT_EQ(data1,comparedata1);
 }
 #endif // INSERTSORT_TEST_H
