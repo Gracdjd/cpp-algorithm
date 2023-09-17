@@ -1,5 +1,5 @@
-#if !defined(MaxSubArray_H)
-#define MaxSubArray_H
+#if !defined(MAXSUBARRAY_H)
+#define MAXSUBARRAY_H
 
 #include <vector>
 #include <functional>
@@ -95,4 +95,4 @@ namespace Algorithm
     
 } // namespace Algorithm
 
-#endif // MaxSubArray_H
+#endif // MAXSUBARRAY_H
