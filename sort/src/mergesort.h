@@ -31,19 +31,20 @@ namespace Algorithm
         if(left_current == mid && right_current != end) std::copy(right_current, end, current);
         if(right_current == end && left_current != mid) std::copy(left_current, mid, current);
 
-        std::copy(result.begin(), result.end(), begin());
+        std::copy(result.begin(), result.end(), begin);
     }   
     
     template<typename Iterator, typename CompareType=std::less<typename std::iterator_traits<Iterator>::value_type>>
-    Iterator merge_sort(Iterator begin, Iterator end, CompareType compare = CompareType())
+    void merge_sort(Iterator begin, Iterator end, CompareType compare = CompareType())
     {
         auto distance = std::distance(begin, end);
-        if(distance == 1) return begin;
+        if(distance <= 1) return;
         else
         {
             Iterator mid = begin + distance / 2;
-
-
+            merge_sort(begin, mid, compare);
+            merge_sort(mid, end, compare);
+            merge(begin, end, mid, compare);
         }
     }
     } // namespace Sort
